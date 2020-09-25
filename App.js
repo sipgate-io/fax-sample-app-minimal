@@ -8,7 +8,7 @@
 
 import React, {useState} from 'react';
 import {createFaxModule, sipgateIO} from 'sipgateio';
-import {SafeAreaView, TextInput, StatusBar, Button, Alert} from 'react-native';
+import {SafeAreaView, TextInput, Button, Alert} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import * as RNFS from 'react-native-fs';
 import DocumentPicker from 'react-native-document-picker';
@@ -30,12 +30,12 @@ const App = () => {
   const [password, setPassword] = useState('');
   const [client, setClient] = useState(null);
 
-  const [recipient, setRecipient] = useState('');
   const [faxlines, setFaxlines] = useState([]);
+  const [recipient, setRecipient] = useState('');
   const [selectedFaxline, setSelectedFaxline] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const submit = async () => {
+  const login = async () => {
     const io = sipgateIO({
       username,
       password,
@@ -106,7 +106,7 @@ const App = () => {
         />
         <Button
           title="Login"
-          onPress={() => submit().catch((e) => Alert.alert('Error', e.message))}
+          onPress={() => login().catch((e) => Alert.alert('Error', e.message))}
         />
       </>
     );
@@ -141,13 +141,10 @@ const App = () => {
   };
 
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        {!client && renderLogin()}
-        {client && renderMain()}
-      </SafeAreaView>
-    </>
+    <SafeAreaView>
+      {!client && renderLogin()}
+      {client && renderMain()}
+    </SafeAreaView>
   );
 };
 
