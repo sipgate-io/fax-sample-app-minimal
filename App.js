@@ -14,13 +14,6 @@ import * as RNFS from 'react-native-fs';
 import DocumentPicker from 'react-native-document-picker';
 import {Buffer} from 'buffer';
 
-async function getUserFaxlines(client) {
-  const webuserId = await client.getAuthenticatedWebuserId();
-  return await client
-    .get(`${webuserId}/faxlines`)
-    .then((response) => response.items);
-}
-
 function sanitizePhoneNumber(phoneNumber) {
   return phoneNumber.replace(/\D/g, '');
 }
@@ -43,7 +36,8 @@ const App = () => {
 
     await io.getAuthenticatedWebuserId();
 
-    const lines = await getUserFaxlines(io);
+    const faxModule = createFaxModule(io);
+    const lines = await faxModule.getFaxlines();
 
     if (lines.length === 0) {
       Alert.alert('No Fax Lines found');
