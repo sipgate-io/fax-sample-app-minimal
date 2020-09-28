@@ -29,14 +29,14 @@ const App = () => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const login = async () => {
-    const io = sipgateIO({
+    const client = sipgateIO({
       username,
       password,
     });
 
-    await io.getAuthenticatedWebuserId();
+    await client.getAuthenticatedWebuserId();
 
-    const faxModule = createFaxModule(io);
+    const faxModule = createFaxModule(client);
     const lines = await faxModule.getFaxlines();
 
     if (lines.length === 0) {
@@ -46,7 +46,7 @@ const App = () => {
       setSelectedFaxline(lines[0]);
     }
 
-    setClient(io);
+    setClient(client);
   };
 
   const sendFax = async () => {
@@ -84,7 +84,7 @@ const App = () => {
 
   const renderLogin = () => {
     return (
-      <>
+      <View>
         <TextInput
           placeholder="E-Mail"
           value={username}
@@ -102,13 +102,13 @@ const App = () => {
           title="Login"
           onPress={() => login().catch((e) => Alert.alert('Error', e.message))}
         />
-      </>
+      </View>
     );
   };
 
   const renderMain = () => {
     return (
-      <>
+      <View>
         <Picker
           selectedValue={selectedFaxline}
           onValueChange={setSelectedFaxline}>
@@ -130,7 +130,7 @@ const App = () => {
           onPress={sendFax}
           disabled={!selectedFaxline || !recipient || !selectedFile}
         />
-      </>
+      </View>
     );
   };
 
