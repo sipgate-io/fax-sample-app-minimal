@@ -8,7 +8,7 @@
 
 import React, {useState} from 'react';
 import {createFaxModule, sipgateIO} from 'sipgateio';
-import {SafeAreaView, TextInput, Button, Alert} from 'react-native';
+import {SafeAreaView, TextInput, Button, Alert, View} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import * as RNFS from 'react-native-fs';
 import DocumentPicker from 'react-native-document-picker';
@@ -60,9 +60,8 @@ const App = () => {
       faxlineId: selectedFaxline.id,
     };
 
-    const faxModule = createFaxModule(client);
-
     try {
+      const faxModule = createFaxModule(client);
       await faxModule.send(fax);
     } catch (err) {
       Alert.alert('Error', err.message);
