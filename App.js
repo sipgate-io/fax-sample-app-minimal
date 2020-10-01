@@ -14,10 +14,6 @@ import * as RNFS from 'react-native-fs';
 import DocumentPicker from 'react-native-document-picker';
 import {Buffer} from 'buffer';
 
-function sanitizePhoneNumber(phoneNumber) {
-  return phoneNumber.replace(/\D/g, '');
-}
-
 const App = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -54,7 +50,7 @@ const App = () => {
     const buffer = Buffer.from(file, 'base64');
 
     const fax = {
-      to: sanitizePhoneNumber(recipient),
+      to: recipient,
       fileContent: buffer,
       filename: selectFile.name,
       faxlineId: selectedFaxline.id,
