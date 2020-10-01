@@ -1,4 +1,4 @@
-# Fax example app
+# Fax example app - minimal blog version
 
 This app demonstrates the fax sending capabilities of the [sipgateio](https://github.com/sipgate-io/sipgateio-node) library.
 
@@ -16,7 +16,8 @@ First make sure, you follow the [react-native environment setup guide](https://r
 After cloning the repository, fire up your shell and install the dependencies using `npm`.
 
 ```sh
-git clone https://github.com/sipgate-io/fax-sample-app
+git clone https://github.com/sipgate-io/fax-sample-app-minimal
+cd fax-sample-app-minimal
 npm install
 ```
 
