@@ -2,7 +2,7 @@
 
 This app demonstrates the fax sending capabilities of the [sipgateio](https://github.com/sipgate-io/sipgateio-node) library.
 
-A tutorial using this code can be found in this [article](https://www.sipgate.io/blog/fax-app)
+A tutorial using this code can be found in this [article](https://www.sipgate.io/blog/fax-app).
 
 ## Introduction
 
