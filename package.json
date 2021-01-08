@@ -16,7 +16,7 @@
     "react-native": "0.63.2",
     "react-native-document-picker": "^3.5.4",
     "react-native-fs": "^2.16.6",
-    "sipgateio": "^2.0.0"
+    "sipgateio": "^2.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
