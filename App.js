@@ -15,8 +15,8 @@ import DocumentPicker from 'react-native-document-picker';
 import {Buffer} from 'buffer';
 
 const App = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [tokenId, setTokenId] = useState('');
+  const [token, setToken] = useState('');
   const [client, setClient] = useState(null);
 
   const [faxlines, setFaxlines] = useState([]);
@@ -26,8 +26,8 @@ const App = () => {
 
   const login = async () => {
     const client = sipgateIO({
-      username,
-      password,
+      tokenId,
+      token,
     });
 
     await client.getAuthenticatedWebuserId();
@@ -81,17 +81,15 @@ const App = () => {
     return (
       <View>
         <TextInput
-          placeholder="E-Mail"
-          value={username}
-          onChangeText={setUsername}
-          autoCompleteType="username"
+          placeholder="TokenId"
+          value={tokenId}
+          onChangeText={setTokenId}
         />
         <TextInput
-          placeholder="Password"
-          value={password}
-          onChangeText={setPassword}
+          placeholder="Token"
+          value={token}
+          onChangeText={setToken}
           secureTextEntry
-          autoCompleteType="password"
         />
         <Button
           title="Login"
