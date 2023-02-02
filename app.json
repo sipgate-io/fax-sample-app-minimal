@@ -1,4 +1,10 @@
 {
-  "name": "faxexample",
-  "displayName": "faxexample"
+  "name": "main",
+  "displayName": "Fax Minimal Demo",
+  "android": {
+    "package": "com.anonymous.faxappminimal"
+  },
+  "ios": {
+    "bundleIdentifier": "com.anonymous.faxappminimal"
+  }
 }
