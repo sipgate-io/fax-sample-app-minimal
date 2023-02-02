@@ -9,7 +9,7 @@
 import React, {useState} from 'react';
 import {createFaxModule, sipgateIO} from 'sipgateio';
 import {SafeAreaView, TextInput, Button, Alert, View} from 'react-native';
-import {Picker} from '@react-native-community/picker';
+import {Picker} from '@react-native-picker/picker';
 import * as RNFS from 'react-native-fs';
 import DocumentPicker from 'react-native-document-picker';
 import {Buffer} from 'buffer';
