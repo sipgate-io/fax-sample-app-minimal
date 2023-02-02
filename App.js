@@ -59,6 +59,7 @@ const App = () => {
     try {
       const faxModule = createFaxModule(client);
       await faxModule.send(fax);
+      Alert.alert('Fax sent successfully!');
     } catch (err) {
       Alert.alert('Error', err.message);
     }
